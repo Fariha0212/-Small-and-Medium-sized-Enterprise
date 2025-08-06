@@ -1,0 +1,103 @@
+.container {
+  max-width: 300px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.input {
+  flex: 1 1 150px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.button {
+  padding: 10px 25px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+  flex: 1 1 100px;
+}
+
+.button:hover {
+  background: #005bb5;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.listItem {
+  padding: 0.8rem 1rem;
+  background: white;
+  margin-bottom: 0.7rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.editButton,
+.deleteButton {
+  margin-left: 10px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.editButton {
+  background-color: #198754;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #146c43;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #b02a37;
+}
+
+@media (max-width: 300px) {
+  .form {
+    flex-direction: column;
+  }
+  .input,
+  .button {
+    flex: 1 1 100%;
+  }
+}
