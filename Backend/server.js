@@ -1,21 +1,34 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
+// middleware
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://Farihayasmin:mim123456@cluster0.dapdkp9.mongodb.net/inventory?retryWrites=true&w=majority')
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// routes
+const productRoutes = require("./routes/products");
+const saleRoutes = require("./routes/sales");
+const expenseRoutes = require("./routes/expenses");
+const dashboardRoutes = require("./routes/dashboard");
 
-app.get('/', (req, res) => {
-  res.send('SME Inventory BD Backend is running');
-});
+app.use("/api/products", productRoutes);
+app.use("/api/sales", saleRoutes);
+app.use("/api/expenses", expenseRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
-app.use('/api/products', require('./routes/products'));
-app.use('/api/sales', require('./routes/sales'));
-
-app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+// db connect & start
+const PORT = process.env.PORT || 5000;
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error("Mongo connection error:", err.message);
+    process.exit(1);
+  });
