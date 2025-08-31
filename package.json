@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "jsbarcode": "^3.12.1",
+    "papaparse": "^5.5.3",
+    "quagga": "^0.12.1",
+    "recharts": "^3.1.2",
+    "xlsx": "^0.18.5"
+  }
+}
